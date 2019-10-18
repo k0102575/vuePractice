@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for2</title>
+</head>
+<body>
+
+<h2>기본 v-for</h2>
+<div id="app">
+    <h3>List of expensive experiments</h3>
+    <ul>
+        <li v-for="exp in experiments">
+            {{exp.name}} ({{exp.cost}}m 달러)
+        </li>
+    </ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script>
+
+let experiments = [
+            {name: 'TEST1', cost: 650, field: 'Physics'},
+            {name: 'TEST2', cost: 100, field: 'Biology'},
+            {name: 'TEST3', cost: 3, field: 'Psychology'},
+            {name: 'TEST4', cost: 7700, field: 'Physics'},
+            {name: 'TEST5', cost: 0, field: 'Physics'}
+        ]
+
+new Vue({
+    el: "#app",
+    data: {
+        experiments: experiments
+    },
+})
+</script>
+</body>
+</html>
