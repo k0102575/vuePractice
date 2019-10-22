@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>필터로 통화 서식 지정하기</title>
+</head>
+<body>
+
+<h2>기본 필터 통화 서식</h2>
+<div id="app">
+    <span>I Have {{5 | currency}} in my pocket</span>
+    <span>I Have {{10 | currency}} in my pocket</span>
+    <span>I Have {{15 | currency}} in my pocket</span>
+    <span>I Have {{20 | currency}} in my pocket</span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js" integrity="sha256-wLefPvftUZaYEQquDfRpnXG8nkR2o9vutAcDLNe64R0=" crossorigin="anonymous"></script>
+<script>
+
+Vue.filter('currency', (money) => {
+    return accounting.formatMoney(money)
+})
+
+new Vue({
+    el: "#app",
+})
+</script>
+</body>
+</html>
